@@ -1,0 +1,43 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC by University of Oxford
+# Example usage: python train.py --data VOC.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── VOC  ← downloads here (2.8 GB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /Users/user/virtualenv/data_to_train/yolo_dataset/
+
+train: # train images (relative to 'path')
+  - external_data_construction_defect_rosatom/train/images
+
+val: # val images (relative to 'path')
+  - external_data_construction_defect_rosatom/val/images
+  
+# test: # test images (optional)
+#   - 
+
+# Classes
+names:
+  0: adj
+  1: int
+  2: geo
+  3: pro
+  4: non
+
+augmentation:
+  hsv_h: 0.015     # Hue augmentation (default 0.015)
+  hsv_s: 0.7       # Saturation augmentation (default 0.7)
+  hsv_v: 0.4       # Value augmentation (default 0.4)
+  translate: 0.1   # Translation augmentation (default 0.1)
+  scale: 0.5       # Scale augmentation (default 0.5)
+  shear: 0.0       # Shear augmentation (default 0.0)
+  perspective: 0.0 # Perspective augmentation (default 0.0)
+  flipud: 0.5      # Vertical flip augmentation (default 0.0)
+  fliplr: 0.5      # Horizontal flip augmentation (default 0.5)
+  mosaic: 1.0      # Mosaic augmentation (default 1.0)
+  mixup: 0.3       # MixUp augmentation (default 0.0)
+# # Download script/URL (optional) ---------------------------------------------------------------------------------------
+# download: |
