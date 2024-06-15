@@ -3,15 +3,16 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN --mount=source=./,target=/source,rw pip install /source --no-cache-dir
 
-COPY . .
+COPY bin.py /app/bin.py
+COPY models /app/models
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "front.py"]
+CMD ["streamlit", "run", "bin.py"]

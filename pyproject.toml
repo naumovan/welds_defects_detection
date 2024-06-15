@@ -1,0 +1,22 @@
+[project]
+name = "welds_defects_detection"
+version = "1.0.0"
+description = "Welds defects detection using YOLOv8 and Streamlit"
+readme = "README.md"
+authors = [{ name = "BitVision" }]
+dependencies = [
+    "streamlit==1.35.0",
+    "numpy==1.26.4",
+    "matplotlib==3.9.0",
+    "ultralytics==8.2.32",
+    "sahi==0.11.16",
+    "onnx", "onnxruntime"
+]
+requires-python = ">=3.9"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["welds_defects_detection"]
