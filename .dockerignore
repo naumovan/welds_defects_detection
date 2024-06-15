@@ -4,4 +4,4 @@
 events.*
 models
 !models/**/*.pt
-!models/**/*.onnx
+!models/**/best_openvino_model
