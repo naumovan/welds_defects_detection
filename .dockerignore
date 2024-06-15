@@ -1,6 +1,7 @@
 *.png
 *.jpeg
 *.jpg
+.git
 events.*
 models
 !models/**/*.pt
