@@ -1,6 +1,6 @@
 import platform
 
-IS_INTEL = "intel" in platform.processor().lower()
+IS_INTEL = "intel" in platform.processor().lower() or "i386" in platform.processor().lower()
 
 MODEL_SIZES = {
     "n": "Быстрее",

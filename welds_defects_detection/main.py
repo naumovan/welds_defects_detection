@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from ultralytics import YOLO
 from sahi import AutoDetectionModel
 
+from welds_defects_detection.SahiOpenVino import load_openvino_sahi
 from welds_defects_detection.config import MODELS, IS_INTEL, MODEL_SIZES
 from welds_defects_detection.detection import detect_defects
 
@@ -18,12 +19,19 @@ def get_model(size) -> tuple[YOLO, list[str]]:
 
 @st.cache_resource()
 def get_model_sahi(size) -> tuple[YOLO, list[str]]:
-    model = AutoDetectionModel.from_pretrained(
-        model_type="yolov8onnx" if IS_INTEL else "yolov8",
-        model_path=MODELS[size],
-        confidence_threshold=0,
-        device="cpu",  # or 'cuda:0'
-    )
+    if IS_INTEL:
+        model = load_openvino_sahi(
+            model_path=MODELS[size],
+            confidence_threshold=0,
+            device="cpu",  # or 'cuda:0'
+        )
+    else:
+        model = AutoDetectionModel.from_pretrained(
+            model_type="yolov8",
+            model_path=MODELS[size],
+            confidence_threshold=0,
+            device="cpu",  # or 'cuda:0'
+        )
 
     _, classes = get_model(size)
     return model, classes
