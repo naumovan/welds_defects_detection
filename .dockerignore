@@ -1,0 +1,7 @@
+*.png
+*.jpeg
+*.jpg
+events.*
+models
+!models/**/*.pt
+!models/**/*.onnx
