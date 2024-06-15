@@ -1,0 +1,6 @@
+streamlit==1.18.1
+opencv-python-headless==4.5.5.64
+numpy==1.23.5
+matplotlib==3.5.2
+ultralytics==8.0.20
+sahi==0.10.7
