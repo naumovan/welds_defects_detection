@@ -1,5 +1,3 @@
-# welds_defects_detection
-Object detection for the construction welds 
 # Репозиторий команды BitVision в задаче нахождения дефектов сварных швов
 В рамках данного решения представлены несколько моделей поколения Yolov8 с функционалом SAHI, обученных на выданном в рамках хакатона AtomicHack'24 датасете.
 
